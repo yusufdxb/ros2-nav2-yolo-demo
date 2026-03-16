@@ -1,0 +1,131 @@
+<?xml version="1.0" ?>
+<!--
+  Nav2 + YOLOv8 Demo World
+  TurtleBot3 spawns at origin. Objects (chair, bottle, person-like box)
+  are scattered at known positions for the demo.
+-->
+<sdf version="1.6">
+  <world name="nav2_yolo_demo">
+
+    <!-- Lighting -->
+    <include>
+      <uri>model://sun</uri>
+    </include>
+
+    <!-- Ground plane -->
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+
+    <!-- Bounding walls -->
+    <model name="wall_north">
+      <static>true</static>
+      <pose>0 5 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="col"><geometry><box><size>10 0.1 1</size></box></geometry></collision>
+        <visual name="vis"><geometry><box><size>10 0.1 1</size></box></geometry>
+          <material><ambient>0.7 0.7 0.7 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="wall_south">
+      <static>true</static>
+      <pose>0 -5 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="col"><geometry><box><size>10 0.1 1</size></box></geometry></collision>
+        <visual name="vis"><geometry><box><size>10 0.1 1</size></box></geometry>
+          <material><ambient>0.7 0.7 0.7 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="wall_east">
+      <static>true</static>
+      <pose>5 0 0.5 0 0 1.5708</pose>
+      <link name="link">
+        <collision name="col"><geometry><box><size>10 0.1 1</size></box></geometry></collision>
+        <visual name="vis"><geometry><box><size>10 0.1 1</size></box></geometry>
+          <material><ambient>0.7 0.7 0.7 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="wall_west">
+      <static>true</static>
+      <pose>-5 0 0.5 0 0 1.5708</pose>
+      <link name="link">
+        <collision name="col"><geometry><box><size>10 0.1 1</size></box></geometry></collision>
+        <visual name="vis"><geometry><box><size>10 0.1 1</size></box></geometry>
+          <material><ambient>0.7 0.7 0.7 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Target object: "person" proxy (tall box, human proportions) -->
+    <model name="person_proxy">
+      <static>true</static>
+      <pose>3.0 1.5 0.9 0 0 0</pose>
+      <link name="link">
+        <collision name="col"><geometry><box><size>0.45 0.3 1.8</size></box></geometry></collision>
+        <visual name="vis">
+          <geometry><box><size>0.45 0.3 1.8</size></box></geometry>
+          <material><ambient>0.9 0.7 0.5 1</ambient><diffuse>0.9 0.7 0.5 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Target object: chair -->
+    <model name="chair_target">
+      <static>true</static>
+      <pose>-2.5 2.0 0.45 0 0 0.5</pose>
+      <link name="link">
+        <collision name="col"><geometry><box><size>0.5 0.5 0.9</size></box></geometry></collision>
+        <visual name="vis">
+          <geometry><box><size>0.5 0.5 0.9</size></box></geometry>
+          <material><ambient>0.4 0.25 0.1 1</ambient><diffuse>0.4 0.25 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Target object: bottle (cylinder) -->
+    <model name="bottle_target">
+      <static>true</static>
+      <pose>1.0 -3.0 0.15 0 0 0</pose>
+      <link name="link">
+        <collision name="col"><geometry><cylinder><radius>0.05</radius><length>0.30</length></cylinder></geometry></collision>
+        <visual name="vis">
+          <geometry><cylinder><radius>0.05</radius><length>0.30</length></cylinder></geometry>
+          <material><ambient>0.1 0.5 0.9 1</ambient><diffuse>0.1 0.5 0.9 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Obstacle box 1 -->
+    <model name="obstacle_1">
+      <static>true</static>
+      <pose>1.5 0.5 0.25 0 0 0</pose>
+      <link name="link">
+        <collision name="col"><geometry><box><size>0.6 0.6 0.5</size></box></geometry></collision>
+        <visual name="vis">
+          <geometry><box><size>0.6 0.6 0.5</size></box></geometry>
+          <material><ambient>0.5 0.5 0.5 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Obstacle box 2 -->
+    <model name="obstacle_2">
+      <static>true</static>
+      <pose>-1.0 -1.5 0.25 0 0 0.3</pose>
+      <link name="link">
+        <collision name="col"><geometry><box><size>0.5 0.8 0.5</size></box></geometry></collision>
+        <visual name="vis">
+          <geometry><box><size>0.5 0.8 0.5</size></box></geometry>
+          <material><ambient>0.5 0.5 0.5 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+
+  </world>
+</sdf>

@@ -1,0 +1,15 @@
+# ros2-nav2-yolo-demo — Python Dependencies
+
+# Perception
+ultralytics>=8.0.0        # YOLOv8
+opencv-python>=4.8.0
+numpy>=1.24.0
+
+# ROS 2 Python (installed with ROS 2 Humble — listed for reference)
+# rclpy
+# nav2_msgs
+# sensor_msgs
+# geometry_msgs
+# cv_bridge
+# tf2_ros
+# tf2_geometry_msgs
