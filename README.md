@@ -25,7 +25,6 @@ Camera feed → YOLOv8 detection → 3D position estimate → Nav2 goal → Robo
 
 ## Demo
 
-> *Add a GIF here — record your Gazebo sim with `ros2 run rqt_image_view rqt_image_view` + screen capture*
 
 ---
 
