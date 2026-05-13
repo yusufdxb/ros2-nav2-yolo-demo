@@ -56,19 +56,20 @@ See `nav2_yolo_bringup/` for the launch, config, and Gazebo world layout. The fo
 
 ## Node Graph
 
-```
-/camera/image_raw ──────────────► [detector_node]
-/camera/depth/image_raw ─────────►     │
-                                        │ /detected_objects
-                                        ▼
-                              [navigator_node]
-                                        │
-                                        │ /goal_pose
-                                        ▼
-                                  [Nav2 stack]
-                                        │
-                                        ▼
-                              [TurtleBot3 in Gazebo]
+```mermaid
+graph TD
+    IMG[camera/image_raw]
+    DEP[camera/depth/image_raw]
+    DET[detector_node]
+    NAV[navigator_node]
+    N2[Nav2 stack]
+    TB[TurtleBot3 in Gazebo]
+
+    IMG --> DET
+    DEP --> DET
+    DET -->|/detected_objects| NAV
+    NAV -->|/goal_pose| N2
+    N2 --> TB
 ```
 
 ---
